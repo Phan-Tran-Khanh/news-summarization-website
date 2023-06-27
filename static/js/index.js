@@ -14,11 +14,12 @@ function keyPressHandler() {
 function summarizeURLHandler() {
   var input = document.getElementById('url-input');
   var url = input.value;
+  var alertMessage = document.getElementById('url-failed-alert');
 
   if (url.startsWith('https://e.vnexpress.net/news/')) {
+    alertMessage.classList.add('d-none');
     summarizeNews('url');
   } else {
-    var alertMessage = document.getElementById('url-failed-alert');
     alertMessage.classList.remove('d-none');
   }
 };
