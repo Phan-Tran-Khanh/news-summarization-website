@@ -20,13 +20,16 @@
       <div class="tab-content">
         <div class="tab-pane fade show active form-group" id="text-tab-pane" tabindex="0">
           <textarea id="text-input" class="form-control overflow-auto" rows="12" placeholder="Enter text"
-            oninput="countWords(this.value);" onkeyup="keyUpHandler()" onkeypress="keyPressHandler()"></textarea>
+            oninput="countWords(this.value);" onkeyup="keyUpHandler()" onkeypress="summarizeTextHandler()"></textarea>
           <p class="mt-3">Word Count: <span id="word-count">0</span></p>
         </div>
         <div class="tab-pane fade" id="url-tab-pane" tabindex="0">
           <label for="url-input" class="form-label mt-3">Enter a VNExpress International URL:</label>
           <input id="url-input" class="form-control mt-3" name="url" type="url" placeholder="https://e.vnexpress.net/news/some-random-url-paths" required>
-          <button type="submit" class="btn btn-success btn-sm mt-3" onclick="summarizeNews('url');">Submit</button>
+          <div class="alert alert-warning d-none" id="url-failed-alert" role="alert">
+            URL is invalid. It should start with "https://e.vnexpress.net/news/".
+          </div>
+          <button type="submit" class="btn btn-success btn-sm mt-3" onclick="summarizeURLHandler();">Submit</button>
         </div>
       </div>
     </div>
