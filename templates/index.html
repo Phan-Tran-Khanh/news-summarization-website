@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block main %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="nav nav-tabs nav-fill">
+        <li class="nav-item">
+          <button class="nav-link active" id="text-tab" data-bs-toggle="tab" data-bs-target="#text-tab-pane"
+            type="button" role="tab" aria-controls="text-tab-pane" aria-selected="true">Text</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="url-tab" data-bs-toggle="tab" data-bs-target="#url-tab-pane" type="button"
+            role="tab" aria-controls="url-tab-pane" aria-selected="false">URL</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="tab-content">
+        <div class="tab-pane fade show active form-group" id="text-tab-pane" tabindex="0">
+          <textarea id="text-input" class="form-control overflow-auto" rows="12" placeholder="Enter text"
+            oninput="countWords(this.value);" onkeyup="keyUpHandler()" onkeypress="keyPressHandler()"></textarea>
+          <p class="mt-3">Word Count: <span id="word-count">0</span></p>
+        </div>
+        <div class="tab-pane fade" id="url-tab-pane" tabindex="0">
+          <label for="url-input" class="form-label mt-3">Enter a VNExpress International URL:</label>
+          <input id="url-input" class="form-control mt-3" name="url" type="url" placeholder="https://e.vnexpress.net/news/some-random-url-paths" required>
+          <button type="submit" class="btn btn-success btn-sm mt-3" onclick="summarizeNews('url');">Submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <textarea id="text-output" class="form-control overflow-hidden" rows="12" placeholder="Summarization"
+          readonly></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
