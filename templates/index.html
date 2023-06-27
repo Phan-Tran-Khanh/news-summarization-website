@@ -20,7 +20,7 @@
       <div class="tab-content">
         <div class="tab-pane fade show active form-group" id="text-tab-pane" tabindex="0">
           <textarea id="text-input" class="form-control overflow-auto" rows="12" placeholder="Enter text"
-            oninput="countWords(this.value);" onkeyup="keyUpHandler()" onkeypress="summarizeTextHandler()"></textarea>
+            oninput="countWords(this.value);" onkeyup="summarizeTextHandler()" onkeypress="keyPressHandler()"></textarea>
           <p class="mt-3">Word Count: <span id="word-count">0</span></p>
         </div>
         <div class="tab-pane fade" id="url-tab-pane" tabindex="0">
