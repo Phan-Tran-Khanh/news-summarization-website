@@ -10,7 +10,7 @@ app = Flask(__name__)
 t5_tokenizer = AutoTokenizer.from_pretrained("t5-small",use_fast=False)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = (AutoModelForSeq2SeqLM
-        .from_pretrained("model")
+        .from_pretrained("weight")
         .to(device))
 
 def summarizeArticle(inpt_text: str):
